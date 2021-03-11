@@ -11,11 +11,9 @@ namespace DependencyInjectionPresentation.ViewModels
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
         public bool IsLoading { get; protected set; }
 
-        protected IServiceProvider ServiceProvider { get; private set; }
 
-        protected BaseViewModel(IServiceProvider serviceProvider)
+        protected BaseViewModel()
         {
-            ServiceProvider = serviceProvider;
         }
 
 

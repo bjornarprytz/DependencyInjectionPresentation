@@ -10,9 +10,13 @@ namespace DependencyInjectionPresentation.ViewModels
 {
     public class DuckViewModel : BaseViewModel, IAnimalViewModel
     {
-        public DuckViewModel(IServiceProvider serviceProvider) : base(serviceProvider)
+        private readonly IImageFetcher Fetcher;
+
+        public DuckViewModel(IImageFetcher fetcher) : base()
         {
+            Fetcher = fetcher;
             LoadImageCommand = new CommandHandler(async () => await LoadImageAsync());
+
         }
 
         public string Sound => "Quack";
@@ -34,7 +38,7 @@ namespace DependencyInjectionPresentation.ViewModels
                 () => IsLoading,
                 async () =>
                 {
-                    Picture = await ServiceProvider.Get<IImageFetcher>().FetchAsync(Id);
+                    Picture = await Fetcher.FetchAsync(Id);
                 });
 
         }
