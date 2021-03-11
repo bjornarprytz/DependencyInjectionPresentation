@@ -16,7 +16,7 @@ namespace DependencyInjectionPresentation
 
         public static FrameworkConstruction AddImageFetcher(this FrameworkConstruction construction)
         {
-            construction.Services.AddSingleton<IImageFetcher, BasicImageFetcher>();
+            construction.Services.AddSingleton<IImageFetcher, DuckmageFetcher>();
 
             return construction;
         }

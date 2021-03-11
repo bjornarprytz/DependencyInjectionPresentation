@@ -1,5 +1,6 @@
 ﻿
 using Dna;
+using Microsoft.Extensions.Configuration;
 using System.Windows;
 
 namespace DependencyInjectionPresentation
@@ -15,6 +16,10 @@ namespace DependencyInjectionPresentation
             base.OnStartup(e);
 
             Framework.Construct<DefaultFrameworkConstruction>()
+                .AddConfiguration(
+                    new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    .Build())
                 .AddImageFetcher()
                 .AddViewModels()
                 .Build();

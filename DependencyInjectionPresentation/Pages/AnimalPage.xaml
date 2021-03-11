@@ -15,11 +15,20 @@
                 <ScaleTransform CenterX="50" ScaleX="0.5" />
             </Viewbox.LayoutTransform>
             <StackPanel>
+                <Label>Duck Search</Label>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Text="{Binding Id, Mode=TwoWay}" />
+                    <Button Command="{Binding LoadImageCommand}" Content="Duck"/>
+                </StackPanel>
                 <TextBlock 
                     Visibility="{Binding IsLoading, Converter={local:BoolToVisibilityConverter}}" 
                     Text="LOADING ..."  
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                <Image Source="{Binding Picture}"/>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding IsLoading, Converter={local:BoolToInvisibilityConverter}}">
+                    <Image Source="{Binding Picture}"/>
+                    <Label Content="{Binding Sound}"></Label>
+                </StackPanel>
+                
             </StackPanel>
         </Viewbox>
     </Grid>

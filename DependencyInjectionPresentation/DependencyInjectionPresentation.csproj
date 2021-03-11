@@ -59,6 +59,7 @@
     <Compile Include="Contracts\IImageFetcher.cs" />
     <Compile Include="Contracts\IViewModel.cs" />
     <Compile Include="Converters\BaseConverter.cs" />
+    <Compile Include="Converters\BoolToInvisibilityConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\ServiceExtensions.cs" />
@@ -66,10 +67,9 @@
       <DependentUpon>AnimalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Services\AdvancedImageFetcher.cs" />
-    <Compile Include="Services\BasicImageFetcher.cs" />
-    <Compile Include="Services\CityImageFetcher.cs" />
+    <Compile Include="Services\DuckmageFetcher.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CommandHandler.cs" />
     <Compile Include="ViewModels\DuckViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +122,11 @@
     <PackageReference Include="PropertyChanged.Fody">
       <Version>3.3.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
